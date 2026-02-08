@@ -13,6 +13,8 @@ import ContactPage from './pages/ContactPage';
 import EthicsPage from './pages/EthicsPage';
 import PrivacyPage from './pages/PrivacyPage';
 import GovTechPage from './pages/GovTechPage';
+import ServicesPage from './pages/ServicesPage';
+import TeamPage from './pages/TeamPage';
 
 function App() {
   // Schema.org structured data for the organization
@@ -73,6 +75,8 @@ function App() {
               <Route path="/eticky-kodex" element={<EthicsPage />} />
               <Route path="/ochrana-osobnich-udaju" element={<PrivacyPage />} />
               <Route path="/govtech-accelerator" element={<GovTechPage />} />
+              <Route path="/sluzby" element={<ServicesPage />} />
+              <Route path="/tym" element={<TeamPage />} />
             </Routes>
           </main>
 

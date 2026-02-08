@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '@/components/SEO';
 import { ArrowRight, Database, MessageSquare, Map, CheckCircle2 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -86,6 +87,11 @@ const ProjectsPage = () => {
 
   return (
     <div className="bg-[#050505] min-h-screen">
+      <SEO
+        title="Projekty"
+        description="Vlajkové projekty Institutu Efektivity: datová pitva státu, blueprint pro veřejnou komunikaci, vizualizace open dat."
+        url="https://www.institutefektivity.cz/projekty"
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="px-6 lg:px-14">

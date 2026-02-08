@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '@/components/SEO';
 import { ArrowRight, Cpu, Search, ShoppingCart, Scale, FolderKanban, GraduationCap, CheckCircle2 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -104,6 +105,11 @@ const ConsultingPage = () => {
 
   return (
     <div className="bg-[#050505] min-h-screen">
+      <SEO
+        title="Consulting"
+        description="AI-first strategie, procesní audity, moderní nákup a právní inženýrství. Full-stack partner pro transformaci veřejné správy."
+        url="https://www.institutefektivity.cz/consulting"
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="px-6 lg:px-14">

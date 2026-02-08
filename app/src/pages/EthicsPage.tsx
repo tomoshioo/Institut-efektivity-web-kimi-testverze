@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '@/components/SEO';
 import { Shield, Scale, Eye, Lock, Ban, FileCheck } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -57,6 +58,11 @@ const EthicsPage = () => {
 
   return (
     <div className="bg-[#050505] min-h-screen">
+      <SEO
+        title="Etický kodex"
+        description="Zásady a pravidla chování Institutu Efektivity. Transparentnost, nezávislost a odpovědnost ve veřejné správě."
+        url="https://www.institutefektivity.cz/eticky-kodex"
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="px-6 lg:px-14">

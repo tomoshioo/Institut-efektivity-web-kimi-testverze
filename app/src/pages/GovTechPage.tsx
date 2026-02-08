@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '@/components/SEO';
 import { ArrowRight, Rocket, Users, Lightbulb, Target, CheckCircle2, Send, CheckCircle } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -138,6 +139,11 @@ const GovTechPage = () => {
 
   return (
     <div className="bg-[#050505] min-h-screen">
+      <SEO
+        title="GovTech Accelerator"
+        description="Akcelerátor pro GovTech startupy. Podpora inovací ve veřejném sektoru a propojení s úřady."
+        url="https://www.institutefektivity.cz/govtech-accelerator"
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="px-6 lg:px-14">

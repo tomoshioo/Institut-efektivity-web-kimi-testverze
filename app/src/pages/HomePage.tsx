@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import SEO from '@/components/SEO';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
@@ -223,6 +224,11 @@ const HomePage = () => {
 
   return (
     <div className="bg-[#050505] overflow-hidden">
+      <SEO
+        title="Institut Efektivity | Transformace veřejné správy"
+        description="Expertní hub, který transformuje českou veřejnou správu v moderní, AI-native ekosystém. Full-stack partner: think-tank, consulting, agency."
+        url="https://www.institutefektivity.cz/"
+      />
       {/* Schema.org markup */}
       <Helmet>
         <script type="application/ld+json">

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '@/components/SEO';
 import { 
   Cpu, Layers, Users, BarChart3, FileText, GraduationCap,
   ArrowRight, CheckCircle2, Zap, Shield, Clock
@@ -115,6 +116,11 @@ const ServicesPage = () => {
 
   return (
     <div className="bg-[#0B0C0F] min-h-screen">
+      <SEO
+        title="Služby"
+        description="Digitální transformace, AI-first strategie, procesní audity a moderní nákup pro veřejnou správu."
+        url="https://www.institutefektivity.cz/sluzby"
+      />
       {/* Hero Section */}
       <section ref={heroRef} className="pt-32 pb-20 relative overflow-hidden">
         <div className="px-7 lg:px-14">

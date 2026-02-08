@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '@/components/SEO';
 import { Linkedin, Mail, ArrowRight, Target, Lightbulb, TrendingUp, Users, Shield, Sparkles } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -143,6 +144,11 @@ const AboutPage = () => {
 
   return (
     <div className="bg-[#050505] min-h-screen">
+      <SEO
+        title="O nás"
+        description="Poznejte tým Institutu Efektivity: experti s praxí z ministerstev, radnic i technologických firem. Transformujeme veřejnou správu."
+        url="https://www.institutefektivity.cz/o-nas"
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="px-6 lg:px-14">

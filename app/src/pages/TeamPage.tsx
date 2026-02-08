@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '@/components/SEO';
 import { Linkedin, Mail, ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -135,6 +136,11 @@ const TeamPage = () => {
 
   return (
     <div className="bg-[#0B0C0F] min-h-screen">
+      <SEO
+        title="Tým"
+        description="Poznejte náš tým expertů Institutu Efektivity: vedení a specialisté z veřejné správy a technologií."
+        url="https://www.institutefektivity.cz/tym"
+      />
       {/* Hero Section */}
       <section ref={heroRef} className="pt-32 pb-20 relative overflow-hidden">
         <div className="px-7 lg:px-14">

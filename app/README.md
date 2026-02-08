@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# Institut Efektivity – web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Webová prezentace **Institut pro efektivní veřejnou správu z.ú.** (React + TypeScript + Vite + Tailwind).
 
-Currently, two official plugins are available:
+## Struktura projektu
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **`/app`** – kořen frontend aplikace (Vite)
+- **`/app/src`** – zdrojové kódy (komponenty, stránky, styly)
+- **`/app/public`** – statické assety (obrázky, PDF, favicon, sitemap)
 
-## React Compiler
+## Vývoj
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd app
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Otevřete [http://localhost:5173](http://localhost:5173).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd app
+npm run build
 ```
+
+Výstup je v **`app/dist`**.
+
+Náhled produkčního buildu:
+
+```bash
+npm run preview
+```
+
+## Deploy na Vercel
+
+1. **Root Directory**: V nastavení projektu na Vercel nastavte **Root Directory** na **`app`** (ne kořen repozitáře).
+2. **Build**: Vercel detekuje Vite a použije `npm run build`. Výstupní složka je `dist`.
+3. **Rewrites**: V `vercel.json` je SPA rewrite – všechny cesty vedou na `index.html`.
+
+### Rychlý deploy (Vercel CLI)
+
+```bash
+cd app
+npx vercel
+```
+
+Při prvním deployi zadejte Root Directory: **app**.
+
+## Technologie
+
+- React 19, React Router 7
+- Vite 7, TypeScript
+- Tailwind CSS, GSAP
+- react-helmet-async (SEO meta tagy)
+
+## SEO
+
+- Meta tagy a Open Graph v `index.html` a v komponentě `SEO` na každé stránce
+- Canonical URL a absolutní OG obrázky v `SEO.tsx`
+- Sitemap: `public/sitemap.xml`
+- Schema.org (Organization, WebSite) v `App.tsx` a `HomePage.tsx`

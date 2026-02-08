@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '@/components/SEO';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const PrivacyPage = () => {
   useEffect(() => {
@@ -30,6 +34,11 @@ const PrivacyPage = () => {
 
   return (
     <div className="bg-[#050505] min-h-screen">
+      <SEO
+        title="Ochrana osobních údajů"
+        description="Zásady zpracování osobních údajů a informace o cookies na webu Institutu Efektivity."
+        url="https://www.institutefektivity.cz/ochrana-osobnich-udaju"
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="px-6 lg:px-14">

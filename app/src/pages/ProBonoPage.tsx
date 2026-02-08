@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '@/components/SEO';
 import { ArrowRight, Download, BookOpen, Lightbulb, ExternalLink } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -117,6 +118,11 @@ const ProBonoPage = () => {
 
   return (
     <div className="bg-[#050505] min-h-screen">
+      <SEO
+        title="Pro Bono"
+        description="Knowledge Hub, legislativní inkubace a advokacie ve veřejném zájmu. Pro bono projekty Institutu Efektivity."
+        url="https://www.institutefektivity.cz/pro-bono"
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="px-6 lg:px-14">

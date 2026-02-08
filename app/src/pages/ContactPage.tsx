@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SEO from '@/components/SEO';
 import { Mail, Phone, MapPin, Building2, Send, Linkedin, CheckCircle2, Map } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -58,6 +59,11 @@ const ContactPage = () => {
 
   return (
     <div className="bg-[#050505] min-h-screen">
+      <SEO
+        title="Kontakt"
+        description="Spojte se s Institutem Efektivity. Konzultace, spolupráce a dotazy k transformaci veřejné správy."
+        url="https://www.institutefektivity.cz/kontakt"
+      />
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="px-6 lg:px-14">
