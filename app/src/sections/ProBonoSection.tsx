@@ -1,0 +1,168 @@
+import React, { useRef, useLayoutEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import WireframeBuilding from '../components/WireframeBuilding';
+import { ArrowRight, Download } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const ProBonoSection: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headlineRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const labelRef = useRef<HTMLSpanElement>(null);
+  const wireframeRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=130%',
+          pin: true,
+          scrub: 0.6,
+        }
+      });
+
+      // ENTRANCE (0-30%)
+      scrollTl.fromTo(wireframeRef.current,
+        { x: '50vw', opacity: 0 },
+        { x: 0, opacity: 1, ease: 'none' },
+        0
+      );
+
+      scrollTl.fromTo(headlineRef.current,
+        { x: '-50vw', opacity: 0 },
+        { x: 0, opacity: 1, ease: 'none' },
+        0
+      );
+
+      scrollTl.fromTo(bodyRef.current,
+        { y: '10vh', opacity: 0 },
+        { y: 0, opacity: 1, ease: 'none' },
+        0.1
+      );
+
+      scrollTl.fromTo(ctaRef.current,
+        { y: '8vh', opacity: 0 },
+        { y: 0, opacity: 1, ease: 'none' },
+        0.15
+      );
+
+      scrollTl.fromTo(labelRef.current,
+        { y: -20, opacity: 0 },
+        { y: 0, opacity: 1, ease: 'none' },
+        0.05
+      );
+
+      // SETTLE (30-70%): Hold positions
+
+      // EXIT (70-100%)
+      scrollTl.fromTo(headlineRef.current,
+        { x: 0, opacity: 1 },
+        { x: '-18vw', opacity: 0.25, ease: 'power2.in' },
+        0.7
+      );
+
+      scrollTl.fromTo(bodyRef.current,
+        { y: 0, opacity: 1 },
+        { y: '6vh', opacity: 0.2, ease: 'power2.in' },
+        0.72
+      );
+
+      scrollTl.fromTo(ctaRef.current,
+        { y: 0, opacity: 1 },
+        { y: '4vh', opacity: 0.2, ease: 'power2.in' },
+        0.74
+      );
+
+      scrollTl.fromTo(wireframeRef.current,
+        { x: 0, opacity: 1 },
+        { x: '12vw', opacity: 0.35, ease: 'power2.in' },
+        0.7
+      );
+
+      scrollTl.fromTo(labelRef.current,
+        { opacity: 1 },
+        { opacity: 0.2, ease: 'power2.in' },
+        0.75
+      );
+
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section 
+      ref={sectionRef} 
+      className="ie-section-pinned bg-white z-[60]"
+      id="probono"
+    >
+      {/* Content container */}
+      <div className="relative w-full h-full">
+        {/* Micro label - left */}
+        <span 
+          ref={labelRef}
+          className="absolute ie-mono-label text-[#00B0BB] opacity-80"
+          style={{ left: '7vw', top: '16vh' }}
+        >
+          Pro Bono
+        </span>
+
+        {/* Headline block - left */}
+        <div 
+          ref={headlineRef}
+          className="absolute"
+          style={{ left: '7vw', top: '24vh', width: '46vw' }}
+        >
+          <h2 className="ie-headline-2 text-[#0B0C0F]">
+            Pro bono & think tank.
+          </h2>
+        </div>
+
+        {/* Body copy - left-lower */}
+        <p 
+          ref={bodyRef}
+          className="absolute ie-body text-[#4A4F5A] max-w-md"
+          style={{ left: '7vw', top: '52vh', width: '34vw' }}
+        >
+          Publikujeme analýzy, otevíráme data a pomáháme neziskovkám zdarma. 
+          Věříme, že kvalitní stát začíná u sdílení know-how.
+        </p>
+
+        {/* CTA - left-bottom */}
+        <div 
+          ref={ctaRef}
+          className="absolute flex items-center gap-6"
+          style={{ left: '7vw', top: '72vh' }}
+        >
+          <button className="inline-flex items-center justify-center px-8 py-4 bg-[#00B0BB] text-white font-semibold text-sm tracking-wide transition-all duration-300 hover:bg-[#009099] hover:-translate-y-0.5">
+            <Download size={18} className="mr-2" />
+            Stáhnout analýzy
+          </button>
+          <a href="#" className="inline-flex items-center text-[#00B0BB] font-medium transition-all duration-300 hover:gap-3 gap-2">
+            Prohlédnout publikace
+            <ArrowRight size={16} />
+          </a>
+        </div>
+
+        {/* Wireframe graphic - right */}
+        <div 
+          ref={wireframeRef}
+          className="absolute text-[#00B0BB]"
+          style={{ right: '6vw', top: '18vh', width: '40vw', height: '64vh' }}
+        >
+          <WireframeBuilding variant={5} />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ProBonoSection;
